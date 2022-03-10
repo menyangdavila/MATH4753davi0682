@@ -4,12 +4,12 @@
 \alias{myddt}
 \title{my ddt plot function}
 \usage{
-myddt(df, cond)
+myddt(df, SPECIES)
 }
 \arguments{
-\item{df}{variable containing dataset}
+\item{df}{variable containing data set}
 
-\item{cond}{variable containing condition to filter the dataset}
+\item{SPECIES}{containing value of variable}
 }
 \value{
 plot and table

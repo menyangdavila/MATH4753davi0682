@@ -1,7 +1,7 @@
 #' my ddt plot function
 #'
-#' @param df variable containing dataset
-#' @param cond variable containing condition to filter the dataset
+#' @param df variable containing data set
+#' @param SPECIES containing value of variable
 #'
 #' @importFrom stats filter
 #' @importFrom utils write.csv
@@ -13,19 +13,19 @@
 #' @examples
 #' \dontrun{myddt(df = ddt, SPECIES = "CCATFISH")}
 
-myddt=function(df, cond){
-  tab_river=table(with(df, RIVER))/length(with(df, RIVER))
+myddt=function(df, SPECIES){
+  tab_river = table(with(df, RIVER))/length(with(df, RIVER))
 
-  df_sub=df %>% filter({{cond}})
+  df_sub = df %>% filter(SPECIES=={{SPECIES}})
 
   species=with(df_sub,SPECIES)
   filename=unique(species)
-  write.csv(df_sub,file=paste0("LvsWfor", filename,".csv"),row.names=FALSE)
+  write.csv(df_sub,file = paste0("LvsWfor", filename,".csv"),row.names=FALSE)
 
-  river=with(df_sub,RIVER)
-  weight=with(df_sub,WEIGHT)
-  length=with(df_sub,LENGTH)
-  g=ggplot(df_sub, aes(x=length,y=weight)) + geom_point(aes(colour=river)) +
+  river = with(df_sub,RIVER)
+  weight = with(df_sub,WEIGHT)
+  length = with(df_sub,LENGTH)
+  g = ggplot(df_sub, aes(x=length,y=weight)) + geom_point(aes(colour=river)) +
     geom_smooth( method = "lm", formula = y ~ x + I(x^2)) + ggtitle("Mengyang Davila")
 
   print(g)
