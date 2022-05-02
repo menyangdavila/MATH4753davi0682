@@ -1,0 +1,88 @@
+---
+title: "What the package does"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{What the package does}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH4753davi0682)
+```
+
+# Introduction
+This package is about the applications to data using R. 
+
+## Reading in data
+To read in csv files into R work space, we can use `read.csv()`.
+```{r, eval=FALSE}
+data
+```
+
+## Vector creation
+We can create a vector by using the `c()` function. 
+```{r}
+v <- c(1,4,5)
+v
+```
+
+## Creation of lists
+To create a list, we can use the function `list`.
+```{r}
+l <- list(a = 1:20, b = letters, c = rnorm(10))
+l
+```
+
+## Creation of a matrix of NA's
+```{r}
+mat <- matrix(NA, 
+              nrow= 10,
+              ncol = 5,
+              byrow = TRUE
+              )
+mat
+```
+
+## Creating data frames
+To create a data frame, we can use `data.frame()`
+```{r}
+df <- data.frame(a=1:26, b = letters, c = LETTERS, d= rnorm(26))
+head(df)
+```
+
+
+# Functions
+This package includes 9 functions from the labs.
+
+## myscatterhist function
+This function outputs scatter histogram of two vectors.
+```{r}
+with(ddt, scatterhist(LENGTH,WEIGHT, xlab="LENGTH"))
+```
+
+## mysample function
+This function outputs a bar plot showing the relative frequency of the numbers (10) from n times of random drawing. 
+```{r}
+mysample(n=1000,iter=1,time=1)
+```
+
+## myncurve function
+This functions output the plot of normal distribution, and the probability P=(Y <= x).
+```{r}
+myncurve(mu=10,sigma=5,x=6)
+```
+
+## mybinomial function
+This function outputs a bar plot of the relative frequency of the times of the success in a binomial test.
+```{r}
+mybin(10000,10,.7)
+```
+

@@ -20,6 +20,6 @@ plot
 my distribution curve
 }
 \examples{
-\dontrun{(mu=10,sigma=5,x=6)}
+\dontrun{mycurve(mu=10,sigma=5,x=6)}
 
 }

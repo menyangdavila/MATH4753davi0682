@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{(mu=10,sigma=5,x=6)}
+#' \dontrun{mycurve(mu=10,sigma=5,x=6)}
 #'
 myncurve=function(x, mu, sigma){
   curve(dnorm(x,mu,sigma), xlim = c(mu-3*sigma, mu + 3*sigma))
